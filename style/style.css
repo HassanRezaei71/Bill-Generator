@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "yekan";
+  src: url("../fonts/Yekan.ttf");
+}
+
+body {
+  font-family: "yekan";
+  direction: rtl;
+  text-align: right;
+  font-weight: 600;
+}
+
+.main-box {
+  width: 603px;
+  height: 994px;
+  border-radius: 36.3px;
+  border: solid 7px rgba(241, 196, 15, 0.5);
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.main-title {
+  width: 100%;
+  height: 60px;
+  background-color: white !important;
+  box-shadow: 0px 2px 15px rgb(229, 229, 229);
+  margin-bottom: 10px;
+  z-index: 4;
+}
+
+.res-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+.food-selection-container{
+  width: 90%;
+  height: 750px;
+  overflow-y: auto;
+  padding-left: 10px;
+}
+
+#result{
+  font-size: 32px;
+}
+
+.discount-code{
+  height: 42px;
+  border: 2px solid rgba(241, 196, 15, 0.5);
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  margin: 20px 0;
+}
+
+.input-discount{
+  padding-right: 5px;
+  border: none;
+  width: 80%;
+}
+
+.input-discount::placeholder{
+  color: #f39c12;
+}
+
+.input-discount:focus{
+  border: none;
+  outline: none;
+}
+
+.plus-discount{
+  font-size: 10px;
+  color: white;
+}
+
+#add-discount{
+  border: none;
+  outline: none;
+  background-color: #f39c12;
+  border-radius: 50%;
+}
+
+.sub-btn{
+  border: none;
+  outline: none;
+  background-color: #e67e22;
+  color: white;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.sub-btn:focus{
+  outline: none;
+}
+
+.food-img{
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+}
+
+#plus,
+#minus{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  color: #e74f3f;
+}
+
+.plus-minus{
+  margin-right: 5px
+}
+
+.count-container{
+  height: 40px;
+  align-items: center;
+}
+
+#count{
+  font-size: 30px;
+}
+
+.food{
+  height: 120px;
+  padding: 5px 0;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 5px;
+}
+
+.price-container{
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bill-container{
+  box-shadow: 0px -2px 15px rgb(229, 229, 229);
+  z-index: 4;
+}
