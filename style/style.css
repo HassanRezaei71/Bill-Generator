@@ -36,7 +36,7 @@ body {
 
 .food-selection-container{
   width: 90%;
-  height: 750px;
+  height: 740px;
   overflow-y: auto;
   padding-left: 10px;
 }
@@ -101,6 +101,7 @@ body {
   width: 100px;
   height: 100px;
   margin-left: 20px;
+  border-radius: 5px;
 }
 
 #plus,
@@ -115,16 +116,18 @@ body {
 }
 
 .plus-minus{
-  margin-right: 5px
+  margin-right: 8px
 }
 
 .count-container{
   height: 40px;
-  align-items: center;
+  align-items: flex-end;
 }
 
 #count{
   font-size: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .food{
@@ -141,6 +144,7 @@ body {
 }
 
 .bill-container{
+  height: 160px;
   box-shadow: 0px -2px 15px rgb(229, 229, 229);
   z-index: 4;
 }
