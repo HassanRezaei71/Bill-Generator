@@ -33,57 +33,66 @@ body {
   font-weight: bold;
 }
 
-
-.food-selection-container{
+#food-selection-container {
   width: 90%;
   height: 740px;
   overflow-y: auto;
   padding-left: 10px;
 }
 
-#result{
+#result {
   font-size: 32px;
 }
 
-.discount-code{
+.discount-code {
   height: 42px;
   border: 2px solid rgba(241, 196, 15, 0.5);
   border-radius: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 10px;
+  padding-right: 10px;
+  padding-left: 3px;
   margin: 20px 0;
 }
 
-.input-discount{
+.input-discount {
   padding-right: 5px;
   border: none;
   width: 80%;
 }
 
-.input-discount::placeholder{
+.input-discount::placeholder {
+  font-family: 'yekan';
+  font-size: 18px;
+  font-weight: bold;
   color: #f39c12;
 }
 
-.input-discount:focus{
+.input-discount:focus {
   border: none;
   outline: none;
 }
 
-.plus-discount{
-  font-size: 10px;
+.plus-discount {
+  font-size: 16px;
+  font-weight: 100;
   color: white;
 }
 
-#add-discount{
+#add-discount {
   border: none;
   outline: none;
   background-color: #f39c12;
   border-radius: 50%;
+  width: 30px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.sub-btn{
+.sub-btn {
   border: none;
   outline: none;
   background-color: #e67e22;
@@ -93,11 +102,11 @@ body {
   border-radius: 8px;
 }
 
-.sub-btn:focus{
+.sub-btn:focus {
   outline: none;
 }
 
-.food-img{
+.food-img {
   width: 100px;
   height: 100px;
   margin-left: 20px;
@@ -105,7 +114,7 @@ body {
 }
 
 #plus,
-#minus{
+#minus {
   background-color: transparent;
   border: none;
   outline: none;
@@ -115,35 +124,35 @@ body {
   color: #e74f3f;
 }
 
-.plus-minus{
-  margin-right: 8px
+.plus-minus {
+  margin-right: 8px;
 }
 
-.count-container{
+.count-container {
   height: 40px;
   align-items: flex-end;
 }
 
-#count{
+#count {
   font-size: 30px;
   display: flex;
   align-items: center;
 }
 
-.food{
+.food {
   height: 120px;
   padding: 5px 0;
   border-bottom: 1px solid lightgray;
   margin-bottom: 5px;
 }
 
-.price-container{
+.price-container {
   height: 100%;
   display: flex;
   align-items: flex-end;
 }
 
-.bill-container{
+.bill-container {
   height: 160px;
   box-shadow: 0px -2px 15px rgb(229, 229, 229);
   z-index: 4;
