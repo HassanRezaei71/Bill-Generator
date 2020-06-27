@@ -1,3 +1,4 @@
+let discountValue = 0;
 const foods = [
   {
     id: 100,
@@ -131,7 +132,7 @@ renderAllFood();
 function renderBillItems() {
   const bills = $("#bills");
   const order = $("#order");
-
+  discountValue = 0;
   bills.html(`<div class="sum-container d-flex justify-content-between my-1">
   <div>جمع کل سفارشات</div>
   <div id="sum">${numberWithCommas(cart.totalValue)} تومان</div>
@@ -162,7 +163,7 @@ function renderBillItems() {
   </button>
   </div>
   <div class="submit-container">
-    <button class="sub-btn">ثبت سفارش</button>
+    <button class="sub-btn" onclick="submitBtn()">ثبت سفارش</button>
   </div>`);
 }
 
@@ -205,13 +206,9 @@ function removeForCart(id) {
   renderBillItems();
 }
 
-let countDis = [];
 function discountBtn() {
   let dis = $("#input-discount").val();
-  if (countDis.indexOf(dis) !== -1) {
-    countDis.push(dis);
-  }
-
+  console.log(discount[dis]);
   if (discount[dis]) {
     $("#add-discount").data("clicked", false);
     $("#discount-code").css("border", "1px solid #e74c3c");
@@ -221,11 +218,19 @@ function discountBtn() {
     $("#add-discount").html(
       `<i class="fas fa-trash" onclick="renderBillItems()"></i>`
     );
+    discountValue = cart.totalValue * discount[dis];
+    $("#discount").html(numberWithCommas(discountValue) + " تومان");
   } else if (dis !== "") {
     $("#discount-code").css("border", "1px solid #e74c3c");
     $("#discount-code,#input-discount").css("background-color", "#fbdfdc");
     $("#add-discount").click(function () {
       renderBillItems();
     });
+    discountValue = 0;
   }
+}
+
+function submitBtn() {
+  let result = cart.totalValue+cart.service-discountValue;
+  $("#result").html(numberWithCommas(result) + " تومان");
 }
