@@ -73,6 +73,12 @@ const foods = [
   },
 ];
 
+const discount = {
+  eydane: 0.2,
+  tabestane: 0.15,
+  zemestane: 0.1,
+};
+
 let cart = {
   service: 20500,
   discount: 34000,
@@ -143,16 +149,15 @@ function renderBillItems() {
     <div id="discount">0 تومان</div>
   </div>
   <div class="result-container d-flex justify-content-center">
-    <div id="result"> ${numberWithCommas(cart.totalValue)} تومان</div>
+    <div id="result"> 0 تومان</div>
   </div>`);
-
-  order.html(`<div class="discount-code">
+  order.html(`<div id="discount-code">
   <input
-    class="input-discount"
+    id="input-discount"
     type="text"
     placeholder="کد تخفیف"
   />
-  <button id="add-discount">
+  <button id="add-discount" onclick="discountBtn()">
     <i class="fas fa-plus plus-discount"></i>
   </button>
   </div>
@@ -160,6 +165,7 @@ function renderBillItems() {
     <button class="sub-btn">ثبت سفارش</button>
   </div>`);
 }
+
 renderBillItems();
 
 function addToCart(id) {
@@ -172,11 +178,10 @@ function addToCart(id) {
   foods.forEach((item) => {
     sum += item.total;
   });
-  if(sum!==0){
+  if (sum !== 0) {
     cart.totalValue = sum;
   }
-  console.log(cart.totalValue);
-  
+
   renderAllFood();
   renderBillItems();
 }
@@ -189,13 +194,38 @@ function removeForCart(id) {
   if (foods[foodIndex].quantity > 0) {
     foods[foodIndex].quantity -= 1;
     foods[foodIndex].total = foods[foodIndex].quantity * foods[foodIndex].price;
-    foods.forEach((item)=>{
-      sum+=item.total;
-    })
+    foods.forEach((item) => {
+      sum += item.total;
+    });
   }
-  if(sum!==0){
+  if (sum !== 0) {
     cart.totalValue = sum;
   }
   renderAllFood();
   renderBillItems();
+}
+
+let countDis = [];
+function discountBtn() {
+  let dis = $("#input-discount").val();
+  if (countDis.indexOf(dis) !== -1) {
+    countDis.push(dis);
+  }
+
+  if (discount[dis]) {
+    $("#add-discount").data("clicked", false);
+    $("#discount-code").css("border", "1px solid #e74c3c");
+    $("#discount-code ,#input-discount").css("background-color", "#d9f6e6");
+    $("#add-discount").empty();
+    $("#add-discount").css("background-color", "#e74c3c");
+    $("#add-discount").html(
+      `<i class="fas fa-trash" onclick="renderBillItems()"></i>`
+    );
+  } else if (dis !== "") {
+    $("#discount-code").css("border", "1px solid #e74c3c");
+    $("#discount-code,#input-discount").css("background-color", "#fbdfdc");
+    $("#add-discount").click(function () {
+      renderBillItems();
+    });
+  }
 }
